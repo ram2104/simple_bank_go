@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Mon Aug 15 06:41:41 2022
+# Make data base, printed on Mon Aug 15 19:02:49 2022
 
 # Variables
 
@@ -15,6 +15,10 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+LC_CTYPE = UTF-8
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -36,7 +40,7 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_CWD = /
+VSCODE_CWD = /Users/ramkrishna/Documents/practiceGround/simple_bank_go
 # environment
 GOPROXY = https://proxy.golang.org,direct
 # environment
@@ -46,13 +50,11 @@ LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
 GOPATH = /Users/ramkrishna/go
 # environment
-LaunchInstanceID = DCBA3942-5552-4D14-A0E7-EAD930128F23
-# environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.rCnMaCfo79/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.a2sDaMhi4O/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -65,6 +67,8 @@ GOMODCACHE = /Users/ramkrishna/go/pkg/mod
 HOME = /Users/ramkrishna
 # default
 MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
+# environment
+VSCODE_CLI = 1
 # environment
 VSCODE_CODE_CACHE_PATH = /Users/ramkrishna/Library/Application Support/Code/CachedData/6d9b74a70ca9c7733b29f0456fd8195364076dda
 # environment
@@ -84,7 +88,7 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-SHLVL = 1
+SHLVL = 3
 # environment
 JAVA_HOME = /Library/Java/JavaVirtualMachines/jdk-18.0.1.1.jdk/Contents/Home
 # default
@@ -94,11 +98,15 @@ USER = ramkrishna
 # makefile
 .DEFAULT_GOAL := postgres
 # environment
+TERM_SESSION_ID = 71159E73-EFFE-4469-A15D-780285931638
+# environment
 LESS = -R
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
 MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
+# environment
+TERM_PROGRAM = Apple_Terminal
 # default
 .VARIABLES := 
 # environment
@@ -116,7 +124,9 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.2516374.2516380
+TERM_PROGRAM_VERSION = 445
+# environment
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.2516374.2516380.8E1CCADD-808F-4A74-BD7B-DB06845B1A7C
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -133,8 +143,6 @@ MAKEFILES :=
 PAGER = less
 # environment
 LC_ALL = C
-# environment
-SECURITYSESSIONID = 186b2
 # automatic
 ^F = $(notdir $^)
 # default
@@ -144,9 +152,11 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 533
+TERM = xterm-256color
+# environment
+VSCODE_PID = 2035
 # variable set hash-table stats:
-# Load=67/1024=7%, Rehash=0, Collisions=2/90=2%
+# Load=72/1024=7%, Rehash=0, Collisions=2/95=2%
 
 # Pattern-specific Variable Values
 
@@ -154,9 +164,9 @@ VSCODE_PID = 533
 
 # Directories
 
-# . (device 16777229, inode 2522284): 7 files, no impossibilities.
+# . (device 16777229, inode 2522284): 10 files, no impossibilities.
 
-# 7 files, no impossibilities in 1 directories.
+# 10 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -206,7 +216,7 @@ sqlc:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-13 20:15:25
+#  Last modified 2022-08-15 19:00:48
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -218,6 +228,14 @@ createdb:
 #  File has not been updated.
 #  commands to execute (from `Makefile', line 5):
 	docker exec -it postgres-local createdb --username=root --owner=root simple_bank
+	
+
+logindb:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 21):
+	docker exec -it postgres-local psql -U root -d simple_bank
 	
 
 # Not a target:
@@ -243,7 +261,7 @@ migrateupdb:
 	
 
 # files hash-table stats:
-# Load=10/1024=1%, Rehash=0, Collisions=0/22=0%
+# Load=11/1024=1%, Rehash=0, Collisions=0/23=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -255,7 +273,7 @@ migrateupdb:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Aug 15 06:41:41 2022
+# Finished Make data base on Mon Aug 15 19:02:49 2022
 
  
 make: *** No rule to make target `all'.  Stop.
