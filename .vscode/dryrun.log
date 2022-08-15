@@ -1,0 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/ramkrishna/Documents/practiceGround/simple_bank_go'
+docker run --name postgres-local -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret -p 5432:5432 -d postgres:14-alpine
+make: Leaving directory `/Users/ramkrishna/Documents/practiceGround/simple_bank_go'
+ 
